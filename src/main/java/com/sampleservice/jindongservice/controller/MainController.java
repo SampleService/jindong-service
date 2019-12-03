@@ -1,5 +1,6 @@
 package com.sampleservice.jindongservice.controller;
 
+import com.sampleservice.jindongservice.utils.MBaseUtils;
 import com.septemberhx.common.base.MResponse;
 import com.septemberhx.mclient.annotation.MApiFunction;
 import com.septemberhx.mclient.annotation.MRestApiType;
@@ -20,6 +21,10 @@ public class MainController extends MObject {
     public MResponse deliveryFunction(@RequestBody MResponse requestData) {
         MResponse result = new MResponse();
         result.set("msg", "/delivery");
+
+        if (requestData.get("interval") != null) {
+            MBaseUtils.generateStringInKBSize(1000, result, (int) requestData.get("interval"));
+        }
         return result;
     }
 
@@ -30,6 +35,10 @@ public class MainController extends MObject {
     public MResponse marketFunction(@RequestBody MResponse requestData) {
         MResponse result = new MResponse();
         result.set("msg", "/market");
+
+        if (requestData.get("interval") != null) {
+            MBaseUtils.generateStringInKBSize(1000, result, (int) requestData.get("interval"));
+        }
         return result;
     }
 }
