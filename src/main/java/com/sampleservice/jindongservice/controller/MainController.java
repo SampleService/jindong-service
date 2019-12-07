@@ -23,7 +23,7 @@ public class MainController extends MObject {
         result.set("msg", "/delivery");
 
         if (requestData.get("interval") != null) {
-            MBaseUtils.generateStringInKBSize(1000, result, (long) requestData.get("interval"));
+            MBaseUtils.generateStringInKBSize(250, result, (int) requestData.get("interval"));
         }
         return result;
     }
@@ -37,7 +37,7 @@ public class MainController extends MObject {
         result.set("msg", "/market");
 
         if (requestData.get("interval") != null) {
-            MBaseUtils.generateStringInKBSize(1000, result, (long) requestData.get("interval"));
+            MBaseUtils.generateStringInKBSize(300, result, (int) requestData.get("interval"));
         }
         return result;
     }
